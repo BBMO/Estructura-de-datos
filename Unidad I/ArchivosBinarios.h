@@ -31,12 +31,11 @@ class ArchivosBinarios{
       void posicionar( int p );
       int tamano();
       void imprimir();
-      int busquedaSecuencial     ( T &bus, int pos=0, int Max=99999999 );
-
-
-      //EN DESARROLLO
-      bool busquedaBinaria ( T &bus );
+      int busquedaSecuencial( T &bus, int pos=0, int Max=99999999 );//Puede modificarse a bool
       T getBuffer(){ return buffer;}
+
+      //Debe tener el archivo ordenado para poder usarlo
+      int busquedaBinaria ( T &bus );//Puede modificarse a bool
 };
 
 template <class T> void ArchivosBinarios<T>::abrir( const std::_Ios_Openmode &t ){
@@ -84,8 +83,7 @@ template <class T> void ArchivosBinarios<T>::imprimir(){
     int cont=0;
     limpiar();
     posicionar(0);
-    while ( true )
-    {
+    while ( true ){
       leer(buffer);
       if ( esFin() ) break;
       cout<<"["<<++cont<<"]"<<buffer<<endl;
@@ -95,6 +93,7 @@ template <class T> void ArchivosBinarios<T>::imprimir(){
 
 template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, int Max ){
      int i=0;
+     //bool enc= false
      int enc=0;
      limpiar();
      posicionar(pos);
@@ -112,20 +111,19 @@ template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, 
      return enc;
 }
 
-//Hay que ordenar el archivo primero, EN DESARROLLO NO USAR
-template <class T> bool ArchivosBinarios<T>::busquedaBinaria( T &bus ){
+//Hay que ordenar el archivo primero para poder usarse
+template <class T> int ArchivosBinarios<T>::busquedaBinaria( T &bus ){
      //bool enc=false;
-     bool enc=false;
+     int enc=0;
      int li=0, ls=tamano()-1, pm;
      limpiar();
-     while ( !enc && li<=ls )
-     {
+     while ( !enc && li<=ls ){
            pm= (li+ls)/2;
            posicionar(pm);
            leer(buffer);
            if ( bus.get_clave()==buffer.get_clave() )
            {
-                enc=true;
+                enc=pm;
                 bus=buffer;
            }
            else if ( bus.get_clave()< buffer.get_clave() )
