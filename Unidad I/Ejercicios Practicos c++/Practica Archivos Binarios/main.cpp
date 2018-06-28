@@ -97,7 +97,7 @@ void consultar(){
     Persona buscandoPersona("", ced);
     arch.abrir(ios::in | ios::binary);
     pos = arch.busquedaBinaria(buscandoPersona);
-        if(pos != 0){
+        if(pos != -1){
             cout<<"\nPersona Encontrada en la posicion "<<(pos+1)<<":\n"<<endl;
             cout<<"\t["<<(pos+1)<<"]"<<buscandoPersona<<endl;
         }

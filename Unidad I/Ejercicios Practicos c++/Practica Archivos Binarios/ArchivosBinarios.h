@@ -92,7 +92,8 @@ template <class T> void ArchivosBinarios<T>::imprimir(){
 }
 
 template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, int Max ){
-     int i=0;
+     int i=-1;
+     pos=0;
      //bool enc= false
      int enc=0;
      limpiar();
@@ -102,6 +103,7 @@ template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, 
        leer(buffer);
        if ( esFin() ) break;
        if ( bus.get_clave()==buffer.get_clave() ){
+           if(i==-1) i=0;
            enc=i;
            bus= buffer;
            break;
@@ -114,17 +116,17 @@ template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, 
 //Hay que ordenar el archivo primero para poder usarse
 template <class T> int ArchivosBinarios<T>::busquedaBinaria( T &bus ){
      //bool enc=false;
-     int enc=0;
+     int enc=-1;
      int li=0, ls=tamano()-1, pm;
      limpiar();
-     while ( !enc && li<=ls ){
+     while (li<=ls){
            pm= (li+ls)/2;
            posicionar(pm);
            leer(buffer);
-           if ( bus.get_clave()==buffer.get_clave() )
-           {
+           if ( bus.get_clave()==buffer.get_clave() ){
                 enc=pm;
                 bus=buffer;
+                break;
            }
            else if ( bus.get_clave()< buffer.get_clave() )
                 ls= pm-1;
