@@ -1,0 +1,4 @@
+id,cedula,edad,nueva,
+1,27270063,18,NULL,
+2,11105951,48,NULL,
+3,12516387,41,NULL,

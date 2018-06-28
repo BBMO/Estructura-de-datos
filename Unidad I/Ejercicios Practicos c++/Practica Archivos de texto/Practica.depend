@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1529272709 source:c:\users\brayan montañez\desktop\practica\tabla.cpp
+	"Tabla.h"
+
+1529272861 c:\users\brayan montañez\desktop\practica\tabla.h
+
+1529372015 source:c:\users\brayan montañez\desktop\practica\main.cpp
+	<iostream>
+	<string.h>
+	<fstream>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"Archivo.h"
+	"templatesOrdenamiento.h"
+
+1529452933 c:\users\brayan montañez\desktop\practica\archivo.h
+
+1529369319 c:\users\brayan montañez\desktop\practica\templatesordenamiento.h
+

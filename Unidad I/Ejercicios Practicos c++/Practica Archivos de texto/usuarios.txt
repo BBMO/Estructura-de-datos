@@ -1,0 +1,4 @@
+id,nombre,apellido,direccion,nacionalidad,
+1,pedro,labrador,michelena,NULL,
+2,maria,perez,san cristobal,NULL,
+3,luis,chacon,cordero,venezolana,
