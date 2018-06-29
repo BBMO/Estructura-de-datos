@@ -95,7 +95,7 @@ template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, 
      int i=-1;
      pos=0;
      //bool enc= false
-     int enc=0;
+     int enc=-1;
      limpiar();
      posicionar(pos);
 

@@ -94,7 +94,7 @@ template <class T> void ArchivosBinarios<T>::imprimir(){
 template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, int Max ){
      int i=0;
      //bool enc= false
-     int enc=0;
+     int enc=-1;
      limpiar();
      posicionar(pos);
 
