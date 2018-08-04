@@ -103,8 +103,8 @@ template <class T>int ArchivosBinarios<T>::busquedaSecuencial( T &bus, int pos, 
        leer(buffer);
        if ( esFin() ) break;
        if ( bus.get_clave()==buffer.get_clave() ){
-           if(i==-1) i=0;
-           enc=i;
+           if(i==-1) enc=0;
+           else enc=i+1;
            bus= buffer;
            break;
        }

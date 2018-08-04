@@ -232,9 +232,9 @@ template <class T> void mergeSort(T v[], int n, int asc_desc = 0){
 		burbuja(v,n, asc_desc);
 	}
 	else {
-		int *x1,*x2;
-		x1 = new int[n/2];
-		x2 = new int[n-(n/2)];
+		T *x1,*x2;
+		x1 = new T[n/2];
+		x2 = new T[n-(n/2)];
 
 		partir(v,x1,x2,n);
 

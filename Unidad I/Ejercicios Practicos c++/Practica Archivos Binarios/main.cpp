@@ -96,7 +96,7 @@ void consultar(){
 
     Persona buscandoPersona("", ced);
     arch.abrir(ios::in | ios::binary);
-    pos = arch.busquedaBinaria(buscandoPersona);
+    pos = arch.busquedaSecuencial(buscandoPersona);
         if(pos != -1){
             cout<<"\nPersona Encontrada en la posicion "<<(pos+1)<<":\n"<<endl;
             cout<<"\t["<<(pos+1)<<"]"<<buscandoPersona<<endl;
@@ -105,6 +105,37 @@ void consultar(){
     arch.cerrar();
 }
 
+/*void modificarPersona () {
+    arch.abrir(ios::in | ios::binary);
+    int modificar, tamano=arch.tamano(), ced;
+    string nom;
+    arch.cerrar();
+    cin.sync();
+
+    imprimirListado();
+
+    do{
+        cout<<"\nSeleccione numero de Persona a Modificar: ";
+        cin>>modificar;
+        if(modificar>tamano || modificar<1) cout<<"Numero no valido vuelva a intentar"<<endl;
+        else break;
+    }while(true);
+
+    cin.sync();
+    cout<<"Nombre(max 30 caracteres): "; getline(cin, nom);
+    cout<<"Cedula: "; cin>>ced;
+
+    Persona personaModificada((char *)nom.c_str(), ced);
+    arch.abrir(ios::in| ios::binary);
+        arch.posicionar(modificar-1);
+        arch.leer(personaModificada);
+        cout<<personaModificada<<endl;
+    arch.cerrar();
+
+    imprimirListado();
+    getch();
+
+}*/
 
 int main(){
 
@@ -116,6 +147,7 @@ int main(){
         cout<<"[2] Agregar  Persona"<<endl;
         cout<<"[3] Eliminar Persona"<<endl;
         cout<<"[4] Consultar(buscar en lista)"<<endl;
+        cout<<"[5] Modificar"<<endl;
         cout<<"[0] Salir"<<endl;
         cout<<"\tEntrada: "; cin>>opcion;
 
@@ -148,6 +180,13 @@ int main(){
                 system("cls");
                 cout<<"\t BUSCAR(Consultar) \n"<<endl;
                 consultar();
+                cout<<"\n\nPresione enter para volver";getch();
+                break;
+            }
+            case 5:{
+                system("cls");
+                cout<<"\t MODIFICAR PERSONA \n"<<endl;
+                modificarPersona();
                 cout<<"\n\nPresione enter para volver";getch();
                 break;
             }
